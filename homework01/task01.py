@@ -15,16 +15,20 @@ html = """
 """
 app = Flask(__name__)
 
-@app.route('/news/<int:num>/')
-def get_news(num):
+@app.route("/")
+def main_():
+    context={"title":"Главная"}
+    return render_template('main.html', **context)
 
-    base = [{'title':'title1', 'name': 'name1', 'date_pub': '2022'},
-            {'title':'title2', 'name': 'name2', 'date_pub': '2023'},
-            {'title':'title3', 'name': 'name3', 'date_pub': '2024'}
-            ]
-    context = base[num-1]
-    print(context)
-    return render_template('news.html', news=context)
+@app.route('/about/')
+def about_():
+    context={"title":"О нас"}
+    return render_template('about.html', **context)
+
+@app.route('/contacts/')
+def contacts_():
+    context={"title":"Контакты"}
+    return render_template('contacts.html', **context)
 
 if __name__ == "__main__":
     app.run()

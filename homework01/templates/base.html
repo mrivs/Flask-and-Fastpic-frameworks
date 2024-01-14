@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <title>
+        {% block title %}
+        homework 1
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <ul class="nav nav-pills justify-content-end align-items-end">
+            <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+            <li class="nav-item"><a href="/about/" class="nav-link">О нас</a></li>
+            <li class="nav-item"><a href="/contacts/" class="nav-link">Данные</a></li>
+
+        </ul>
+        {% block content %}
+        Страница не заполнена
+        {% endblock %}
+
+    </div>
+    <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+</body>
+<footer>
+    <div class="row fixed-bottom modal-footer">
+
+        <p>Все права защищены &copy;</p>
+    </div>
+</footer>
+
+</html>
