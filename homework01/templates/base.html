@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,
 initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <title>
         {% block title %}
         homework 1
@@ -14,22 +15,24 @@ initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <ul class="nav nav-pills justify-content-end align-items-end">
+    <div class="container-fluid pad-zero ">
+        <ul class="nav nav-pills align-items-center bg-c">
             <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
             <li class="nav-item"><a href="/about/" class="nav-link">О нас</a></li>
             <li class="nav-item"><a href="/contacts/" class="nav-link">Данные</a></li>
-
         </ul>
+        <div class="pad-10" >
         {% block content %}
-        Страница не заполнена
-        {% endblock %}
+        {% endblock %} 
+        </div>
 
     </div>
+
+
     <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
 </body>
 <footer>
-    <div class="row fixed-bottom modal-footer">
+    <div class="row fixed-bottom modal-footer bg-c">
 
         <p>Все права защищены &copy;</p>
     </div>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super()}} - {{ title}}
+{% endblock%}
+
+{% block content %}
+<div>
+  <h1> Одежда </h1>
+  <p> Main page Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, iusto libero blanditiis consequatur omnis
+    ipsam repellendus nobis in doloribus, harum nam illum ea velit, enim quae animi iure quos odit.
+  </p>
+  <div class="container-fluid">
+    <ul class="nav nav-pills align-items-center">
+      <li class="nav-item"><a href="/jacket/" class="nav-link">Пиджак</a></li>
+      <li class="nav-item"><a href="/coat/" class="nav-link">Куртка</a></li>
+    </ul>
+
+    {% block poducts %}
+
+    {% endblock %}
+  </div>
+
+</div>
+
+{% endblock %}

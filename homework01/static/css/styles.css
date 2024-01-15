@@ -1,0 +1,14 @@
+.bg-c{
+    /* display: flex;
+    width: 100%; */
+    background-color: rgb(197, 196, 155);
+}
+
+.pad-zero{
+    padding-left: 0;
+    padding-right: 0;
+}
+.pad-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
