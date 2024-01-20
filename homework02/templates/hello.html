@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super()}} - {{ title}}
+{% endblock%}
+
+{% block content %}
+<div>
+  <h2> Приветствие </h2>
+  <p>Привет, {{name}} Почта: {{mal}} </p>
+
+</div>
+<div>
+  <form action="/return" method="post">
+    <input type="submit" value="Возврат">
+  </form>
+</div>
+{% endblock %}
+
+{% block info %}
+{{ super()}} - main - {{ info }}
+{% endblock%}
