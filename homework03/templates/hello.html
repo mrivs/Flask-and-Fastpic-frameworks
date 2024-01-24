@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super()}} - {{ title}}
+{% endblock%}
+
+{% block content %}
+<div>
+  <h2> Пользователь добавлен! </h2>
+  
+ 
+    <button class="nav-item"><a href="/" class="nav-link">Вернуться на Главную</a></>
+    
+
+</div>
+
+{% endblock %}
+
+{% block info %}
+{{ super()}} - main - {{ info }}
+{% endblock%}

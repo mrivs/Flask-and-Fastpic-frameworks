@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../static/css/styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>
+        {% block title %}
+        homework 2
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <section>
+        <div class="container-fluid pad-zero ">
+            <ul class="nav nav-pills align-items-center bg-c">
+                <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="/about/" class="nav-link">О нас</a></li>
+            </ul>
+            <div class="pad-10" >
+            {% block content %}
+            {% endblock %} 
+            </div>
+    
+        </div>
+    </section>
+    <section>
+
+    </section>
+
+
+    <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+</body>
+<footer>
+    <div class="row fixed-bottom modal-footer bg-c">
+
+        <p>Все права защищены &copy; {{ info }}</p>
+    </div>
+</footer>
+
+</html>
