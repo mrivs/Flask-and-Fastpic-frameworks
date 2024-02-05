@@ -20,6 +20,10 @@ from pydantic import BaseModel
 import databases
 import sqlalchemy
 
+
+from fastapi import FastAPI, HTTPException
+from starlette.responses import RedirectResponse
+
 from pyd_models import User,UserIn,Product,ProductIn,Order,OrderIn
 
 DATABASE_URL = "sqlite:///mydatabase.db"
@@ -55,6 +59,12 @@ orders = sqlalchemy.Table("orders",metadata,
 engine = sqlalchemy.create_engine(DATABASE_URL,connect_args={"check_same_thread": False})
 metadata.create_all(engine)
 app = FastAPI()
+
+
+
+@app.get("/")
+async def start_page():
+    return RedirectResponse(url="/docs")
 
 
 @app.on_event("startup")
@@ -153,7 +163,7 @@ async def delete_order(order_id: int):
 @app.post("/products/", response_model=Product)
 async def create_product(product: ProductIn):
     '''Создание product в БД, create '''
-    query = orders.insert().values(product_name=product.product_name,description=product.description,price=product.price)
+    query = products.insert().values(product_name=product.product_name,description=product.description,price=product.price)
     last_record_id = await database.execute(query)
     # print(last_record_id)
     return {**product.dict(), "product_id": last_record_id}
@@ -161,13 +171,13 @@ async def create_product(product: ProductIn):
 @app.get("/products/", response_model=List[Product])
 async def read_products():
     ''' Чтение products из БД, read'''
-    query = orders.select()
+    query = products.select()
     return await database.fetch_all(query)
 
 @app.get("/products/{product_id}", response_model=Product)
 async def read_product(product_id: int):
     '''Чтение одного product из БД, read'''
-    query = orders.select().where(products.c.product_id == product_id)
+    query = products.select().where(products.c.product_id == product_id)
     return await database.fetch_one(query)
 
 @app.put("/products/{product_id}", response_model=Product)
